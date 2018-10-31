@@ -1,18 +1,45 @@
 <?php
+ function GeraTabela($resultado) {
+                $Linhas = count($resultado);
+                $Colunas = count($resultado[0]);
+                echo "<table border=1>
+                   <table border=1>";
+                for ($i = 0; $i < $Linhas; $i++) {
+                    echo "</tr>";
+                    echo "<tr>";
+                    for ($j = 0; $j < $Colunas; $j++) {
+                        echo "<td> " . $resultado[$i][$j] . "</td>";
+                    }
+                }
 
-$Provas = array
-  (
-  array(1,22,18),
-  array(1,22,13),
- 
-  );
-echo $Provas[0][0].": Realizadas: ".$Provas[0][1].", Prontas: ".$Provas[0][2].".<br>";
-echo $Provas[1][0].": Realizadas: ".$Provas[1][1].", Prontas: ".$Provas[1][2].".<br>";
+                echo "<br>";
+            }
+            
+$matriz1 = array
+    (
+                array(5, 2, 5),
+                array(9, 8, 1),
+                array(6, 9, 7)
+            );
 
+$matriz2 = array
+   (
+                array(3, 2, 9),
+                array(7, 5, 9),
+                array(0, 0, 1)
+            );
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+function SomaMatriz($matriz1, $matriz2) {
+               $copia = $matriz1;
+                for ($i = 0; $i < 3; $i++) {
+                    for ($j = 0; $j < 3; $j++) {
+                       $copia[$i][$j] = $matriz1[$i][$j] + $matriz2[$i][$j];    
+                        }
+                    }
+                
+                return $copia;
+                
+        }
+            
+            $result = SomaMatriz($matriz1, $matriz2);
+             GeraTabela($result);
